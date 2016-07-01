@@ -1,0 +1,54 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item><!--标题栏颜色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#55000000</item><!--光标颜色-->
+    </style>
+
+    <!--android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"-->
+    <style name="btn_menu">
+        <item name="android:onClick">choose</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="lineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@android:color/darker_gray</item>
+    </style>
+    <style name="shuLineStyle">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@android:color/black</item>
+    </style>
+    <!--android:gravity="center"
+            android:background="@drawable/search_title_btn"
+            android:button="@null"
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/sel_search_text"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="30dp"-->
+    <style name="search_title">
+        <item name="android:textColor">@color/sel_search_text</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:background">@drawable/search_title_btn</item>
+    </style>
+</resources>

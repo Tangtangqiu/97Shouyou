@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="com.alibaba.tangtang.a97shouyou.module.main.ui.LoginActivity">
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/register_title"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="用户登录"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/goBack"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/goTo_register"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:text="注册"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/register_title"
+            android:background="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/userName"
+        android:background="@drawable/user_register_input"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="phone"
+        android:hint="请输入手机号"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <EditText
+        android:id="@+id/userPas"
+        android:background="@drawable/user_register_input"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="textPassword"
+        android:hint="请输入密码"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <CheckBox
+            android:id="@+id/login_check"
+            android:button="@drawable/user_register_radiobtn"
+            android:text="下次自动登录"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/lost_pas"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/holo_blue_bright"
+            android:text="忘记密码了？"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/user_login"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/commen_shape"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="登录"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:layout_alignParentBottom="true"
+            android:text="如登录异常，请联系客服QQ：800077265"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>

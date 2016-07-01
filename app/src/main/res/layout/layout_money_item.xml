@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/money_item_image"
+        android:src="@mipmap/ic_about_app"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/money_item_title"
+            android:gravity="center"
+            android:text="游戏任务"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <RatingBar
+            android:layout_marginTop="10dp"
+            android:id="@+id/money_item_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="?android:attr/ratingBarStyleSmall"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5"
+            android:max="10"
+            android:progressDrawable="@drawable/layout_ratingbar"
+            />
+        <TextView
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:id="@+id/money_item_des"
+            android:gravity="center"
+            android:text="官方任务，奖励丰厚"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/money_item_btn"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/money_title_btn"
+        android:text="奖888元"
+        android:clickable="true"
+        android:textColor="@color/sel_search_text"
+        android:layout_width="70dp"
+        android:layout_height="30dp" />
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:background="@drawable/money_shape"
+    android:layout_height="300dp">
+    <TextView
+        android:gravity="center"
+        android:text="72G游戏助手"
+        android:background="@drawable/money_text_shape"
+        android:layout_width="300dp"
+        android:layout_height="40dp" />
+    <LinearLayout
+        android:background="@drawable/money__buttom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="300dp"
+        android:layout_height="260dp">
+        <ProgressBar
+            android:indeterminateDrawable="@drawable/rotate_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="拼命加载中"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

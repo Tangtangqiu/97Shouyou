@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:layout_margin="10dp"
+        android:id="@+id/search_item_image"
+        android:src="@mipmap/ic_about_app"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="100dp">
+        <TextView
+            android:id="@+id/search_item_title"
+            android:gravity="center"
+            android:text="游戏任务"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <RatingBar
+            android:layout_marginTop="20dp"
+            android:id="@+id/search_item_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="?android:attr/ratingBarStyleSmall"
+            android:numStars="5"
+            android:rating="2.5"
+            android:stepSize="0.5"
+            android:max="10"
+            android:progressDrawable="@drawable/layout_ratingbar"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/search_item_des"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+
+                android:text="2121人下载"
+                android:id="@+id/search_downCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:text="152MB"
+                android:id="@+id/search_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/search_download_sel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/search_getU"
+            android:layout_marginTop="5dp"
+            android:text="奖1,500U币"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

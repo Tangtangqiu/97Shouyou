@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_pw_rb"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:textStyle="bold"
+            android:paddingBottom="15dp"
+            android:textSize="15sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:gravity="center"
+            android:text="1000"
+            android:background="@mipmap/newuser_redbag"
+            android:id="@+id/U1000"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_above="@+id/register"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp" />
+        <Button
+
+            android:textSize="20sp"
+            android:textColor="#EA3925"
+            android:text="立即注册"
+            android:background="@drawable/register_shape"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:id="@+id/register"
+            android:layout_above="@+id/dengLu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp" />
+        <TextView
+            android:text="已有账号，立即登录！"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:id="@+id/dengLu" />
+        <View
+            android:layout_marginBottom="14dp"
+            android:background="#894037"
+            android:layout_width="180dp"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="恭喜您,获得1000U币"
+        android:background="@mipmap/newuser_redbag_title"
+        android:id="@+id/hb_title"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_height="40dp" />
+    <LinearLayout
+        android:id="@+id/ll"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/newuser_redbag_xx"
+        android:layout_width="match_parent"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/hb_title">
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:text="获得新人专享1000U币红包"
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="合计一元人民币"
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:gravity="center"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            android:text="仅需一步红包就稳稳地落入你的腰包"
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.alibaba.tangtang.a97shouyou.module.money.ui.SearchGameActivity">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:id="@+id/search_back"
+            android:src="@drawable/back_sel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/search_edit"
+            android:editable="false"
+            android:paddingRight="10dp"
+            android:drawableRight="@mipmap/ic_input_search"
+            android:paddingLeft="10dp"
+            android:hint="搜游戏"
+            android:background="@drawable/commen_shape_gray"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+    <View style="@style/lineStyle"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/search_title_container"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <RadioButton
+                android:checked="true"
+                android:id="@+id/search_title_allGame"
+                android:text="全部游戏"
+
+                style="@style/search_title"/>
+            />
+            <RadioButton
+                android:text="未试玩"
+                android:id="@+id/search_title_tryGame"
+
+                style="@style/search_title" />
+            <RadioButton
+                android:id="@+id/search_title_haveGame"
+                android:text="已试玩"
+
+                style="@style/search_title" />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/search_try_circle"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="207dp"
+            android:gravity="center"
+            android:text="99"
+            android:textColor="#fff"
+            android:background="@drawable/circle"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
+    <!--<LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:id="@+id/search_title_container"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/search_title_allGame"
+            android:gravity="center"
+            android:background="@drawable/search_title_btn"
+            android:text="全部游戏"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/search_title_tryGame"
+            android:gravity="center"
+            android:background="@drawable/search_title_btn"
+            android:text="未试玩"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/search_title_haveGame"
+            android:gravity="center"
+            android:background="@drawable/search_title_btn"
+            android:text="已试玩"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_height="30dp" />
+    </LinearLayout>-->
+    <View style="@style/lineStyle"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/search_viewPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+    <!--<com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>-->
+
+</LinearLayout>

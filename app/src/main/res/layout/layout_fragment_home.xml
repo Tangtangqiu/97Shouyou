@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/linearLayout">
+        <ImageView
+            android:id="@+id/home_title_left"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/ic_menu_03_hl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textSize="30sp"
+            android:gravity="center"
+            android:text="72G游戏助手"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/home_title_right"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/ic_menu_03_nor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/home_banner"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:text="花落谁家的大奖啊什么的花落谁家的大奖啊什么的花落谁家的大奖啊什么的花落谁家的大奖啊什么的"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentStart="true" />
+        <RelativeLayout
+            android:background="#A8A6A2"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_below="@+id/home_banner"
+            android:layout_alignParentStart="true"
+            android:id="@+id/relativeLayout">
+            <ImageView
+                android:id="@+id/home_head_image"
+                android:background="@drawable/circle_nocolor"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:text="小木"
+                android:textColor="@android:color/white"
+                android:background="@drawable/home_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/home_head_image"
+                android:layout_alignEnd="@+id/home_head_image"
+                android:id="@+id/textView2" />
+            <TextView
+                android:text="账户余额（元）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_head_image"
+                android:layout_alignStart="@+id/home_head_image"
+                android:id="@+id/textView" />
+            <TextView
+                android:id="@+id/home_yuer"
+                android:text="1.20"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:text="合计U币"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/home_yuer"
+                android:layout_toStartOf="@+id/textView2" />
+            <TextView
+                android:text="1200"
+                android:id="@+id/home_ub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_yuer"
+                android:layout_toEndOf="@+id/home_yuer" />
+            <TextView
+
+                android:text="总收入（元）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="19dp"
+                android:id="@+id/textView4"
+                android:layout_below="@+id/textView3"
+                android:layout_toStartOf="@+id/textView" />
+            <TextView
+                android:id="@+id/home_total_shouru"
+                android:text="1.20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView4"
+                android:layout_alignEnd="@+id/textView4"
+                android:layout_marginEnd="27dp" />
+            <TextView
+                android:text="今日收益（元）"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:layout_below="@+id/textView3"
+                android:layout_toEndOf="@+id/textView4" />
+            <TextView
+                android:id="@+id/home_today_shouru"
+                android:text="0.00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/home_total_shouru"
+                android:layout_toStartOf="@+id/home_ub" />
+            <TextView
+                android:text="邀请好友数"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView5"
+                android:layout_toEndOf="@+id/textView5"
+                android:layout_marginStart="26dp"
+                android:id="@+id/textView6" />
+            <TextView
+                android:text="0"
+                android:id="@+id/home_haoyou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/home_today_shouru"
+                android:layout_alignEnd="@+id/textView6"
+                android:layout_marginEnd="30dp" />
+
+            <View
+                style="@style/shuLineStyle"
+                android:layout_alignTop="@+id/textView3"
+                android:layout_toEndOf="@+id/home_total_shouru" />
+
+            <View
+                style="@style/shuLineStyle"
+                android:layout_alignTop="@+id/home_ub"
+                android:layout_toEndOf="@+id/textView5"
+                android:layout_marginStart="18dp" />
+        </RelativeLayout>
+
+    <TextView
+        android:id="@+id/home_start_money"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:text="开始赚钱"
+        android:background="@drawable/home_rec_yellow_color"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="204dp"
+        android:layout_below="@+id/home_banner"
+        android:layout_centerHorizontal="true" />
+
+    <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
+            android:background="#3EA2EE"
+            app:text1="每日签到"
+            app:text2="一键签到轻松拿奖"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignEnd="@+id/home_start_money"
+        android:id="@+id/view3" />
+
+    <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
+        android:layout_marginTop="20dp"
+        android:background="#FFB502"
+        app:text1="四级好友"
+        app:text2="好友越多奖励越高"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/view3"
+        android:layout_alignStart="@+id/view3"
+        android:id="@+id/view4" />
+
+    <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
+            android:background="#33D7B5"
+            app:text1="手游礼包"
+            app:text2="免费礼包任性领"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+        android:id="@+id/view2"
+        android:layout_below="@+id/home_start_money"
+        android:layout_alignStart="@+id/home_start_money"
+        android:layout_marginTop="25dp" />
+
+    <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
+        android:layout_marginTop="20dp"
+        android:background="#FF6F54"
+        app:text1="排行榜"
+        app:text2="高手对决你排第几"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:id="@+id/view"
+        android:layout_below="@+id/view2"
+        android:layout_alignStart="@+id/view2" />
+</RelativeLayout>
