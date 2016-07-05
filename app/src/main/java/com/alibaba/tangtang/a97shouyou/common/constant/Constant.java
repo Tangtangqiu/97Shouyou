@@ -5,7 +5,7 @@ package com.alibaba.tangtang.a97shouyou.common.constant;
  * Created by zhouyi on 16/4/5.
  */
 public class Constant {
-    //用户个人信息
+    //用户个人信息网址
     public static final String HOME_USERINFO = "http://www.yuu1.com/app_api/user_info/";
     //HomeBanner
     public static final String HOME_BANER_URL = "http://www.yuu1.com/app_api/push_notice/";
@@ -15,6 +15,28 @@ public class Constant {
     public static final String  MONEY_URL = "http://zhushou.72g.com/app/game/game_list/";
 
     public static final String LOGIN_URL = "http://www.yuu1.com/app_api/app_login";
+
+    //用户个人信息
+    public static final String USER_INFO = "{\n" +
+            "    \"info\": {\n" +
+            "        \"uid\": \"318529496\", \n" +
+            "        \"detail_address\": \"\", \n" +
+            "        \"hpic\": \"http://www.yuu1.com//data/avatar/avatar_6.png\", \n" +
+            "        \"nickname\": \"小木\", \n" +
+            "        \"qq\": \"\", \n" +
+            "        \"receiver\": \"15687378547\", \n" +
+            "        \"sex\": \"0\", \n" +
+            "        \"phone\": \"15687378547\", \n" +
+            "        \"username\": \"15687378547\", \n" +
+            "        \"score\": \"1200\", \n" +
+            "        \"expend\": \"1200\", \n" +
+            "        \"code\": \"100904\", \n" +
+            "        \"invite_num\": 0, \n" +
+            "        \"today_profit\": 0\n" +
+            "    }, \n" +
+            "    \"page\": null, \n" +
+            "    \"state\": \"success\"\n" +
+            "}";
 
     public static final String GAME_TASK_LIST_JSON = "{\n" +
             "\t\"info\": [{\n" +

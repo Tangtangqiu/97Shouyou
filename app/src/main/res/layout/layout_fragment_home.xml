@@ -45,7 +45,7 @@
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentStart="true" />
         <RelativeLayout
-            android:background="#A8A6A2"
+            android:background="#ffff"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="230dp"
@@ -158,20 +158,27 @@
                 android:layout_marginStart="18dp" />
         </RelativeLayout>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/home_start_money"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="#fff"
-        android:text="开始赚钱"
-        android:background="@drawable/home_rec_yellow_color"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="204dp"
         android:layout_below="@+id/home_banner"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/home_start_money1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textColor="#fff"
+            android:text="开始赚钱"
+            android:background="@drawable/home_rec_yellow_color"
+            />
+    </LinearLayout>
+
 
     <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
             android:background="#3EA2EE"
@@ -194,16 +201,24 @@
         android:layout_alignStart="@+id/view3"
         android:id="@+id/view4" />
 
-    <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
+    <LinearLayout
+        android:id="@+id/view2"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/home_start_money"
+        android:layout_alignStart="@+id/home_start_money"
+        android:layout_marginTop="25dp"
+
+        >
+        <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
             android:background="#33D7B5"
             app:text1="手游礼包"
             app:text2="免费礼包任性领"
             android:layout_width="150dp"
             android:layout_height="80dp"
-        android:id="@+id/view2"
-        android:layout_below="@+id/home_start_money"
-        android:layout_alignStart="@+id/home_start_money"
-        android:layout_marginTop="25dp" />
+             />
+    </LinearLayout>
+
 
     <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
         android:layout_marginTop="20dp"

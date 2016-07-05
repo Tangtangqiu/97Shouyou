@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.alibaba.tangtang.a97shouyou.R;
 import com.alibaba.tangtang.a97shouyou.module.money.bean.TaskGameInfo;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -80,14 +83,21 @@ public class MyMutilAdapter extends BaseAdapter{
                 convertView.setTag(titleHolder);
 
             }else {
-                convertView = LayoutInflater.from(context).inflate(R.layout.search_item,null);
+                convertView = LayoutInflater.from(context).inflate(R.layout.layout_money_item,null);
                 PlatformHolder platformHolder = new PlatformHolder();
-                platformHolder.mtvPlatformName = (TextView) convertView.findViewById(R.id.search_item_title);
+                platformHolder.mtvPlatformName = (TextView) convertView.findViewById(R.id.money_item_title);
+                platformHolder.ratingBar = (RatingBar) convertView.findViewById(R.id.money_item_rating);
+                platformHolder.imageView = (ImageView) convertView.findViewById(R.id.money_item_image);
                 if (position == 1){
                     platformHolder.mtvPlatformName.setText("游戏任务");
                 }else {
                     //因为前面多加了3条数据，所以数据集合里面的第一条数据，要通过postion-3来获取
                     platformHolder.mtvPlatformName.setText(datas.get(position-3).getPlatform_name());
+                    float v = Float.parseFloat(datas.get(position - 3).getRank());
+                    platformHolder.ratingBar.setRating(v);
+                    Picasso.with(context).load(datas.get(position - 3).getAd_img())
+                            .into(platformHolder.imageView);
+
                 }
 
 
@@ -110,6 +120,11 @@ public class MyMutilAdapter extends BaseAdapter{
                 }else {
                     //因为前面多加了3条数据，所以数据集合里面的第一条数据，要通过postion-3来获取
                     platformHolder.mtvPlatformName.setText(datas.get(position-3).getPlatform_name());
+                    float v = Float.parseFloat(datas.get(position - 3).getRank());
+                    platformHolder.ratingBar.setRating(v);
+                    Picasso.with(context).load(datas.get(position - 3).getAd_img())
+                            .into(platformHolder.imageView);
+
                 }
 
             }
@@ -126,6 +141,7 @@ public class MyMutilAdapter extends BaseAdapter{
 
     class PlatformHolder{
         TextView mtvPlatformName;
-
+        RatingBar ratingBar;
+        ImageView imageView;
     }
 }

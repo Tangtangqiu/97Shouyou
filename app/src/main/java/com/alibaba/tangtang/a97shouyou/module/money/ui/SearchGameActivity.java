@@ -38,6 +38,12 @@ public class SearchGameActivity extends BaseActivity{
 
         MyPageAdapter vpAdapter = new MyPageAdapter(getSupportFragmentManager(),fragments);
         search_viewPage.setAdapter(vpAdapter);
+        search_viewPage.post(new Runnable(){
+            @Override
+            public void run(){
+
+            }
+        });
     }
 
     @Override

@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -34,6 +33,9 @@ public class MainActivity extends BaseActivity{
     private List<Fragment> fragmentList;
 
     private long oldTime=0;
+    private FragmentTransaction transaction1;
+    private ButtonMenu buttonMenu_money;
+
     //点击按钮做相应处理
     public void choose(View view){
         ButtonMenu buttonMenu = (ButtonMenu) view;
@@ -41,8 +43,9 @@ public class MainActivity extends BaseActivity{
         if(!lastMenu.equals(buttonMenu)){
             lastMenu.unselect();
         }
+
         lastMenu = buttonMenu;
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction =  getSupportFragmentManager().beginTransaction();
         switch(view.getId()){
 
             case R.id.buttonMenu_home:
@@ -98,6 +101,7 @@ public class MainActivity extends BaseActivity{
     @Override
     protected void findViews(){
         lastMenu = (ButtonMenu)findViewById(R.id.buttonMenu_home);
+        buttonMenu_money = (ButtonMenu) findViewById(R.id.buttonMenu_money);
     }
 
 
@@ -119,7 +123,26 @@ public class MainActivity extends BaseActivity{
         fragmentList.add(gessFragment);
         fragmentList.add(shopFragment);
         fragmentList.add(mineFragment);*/
+        //做HomeActivity按钮的点击跳转回调
+        homeFragment.setOnButtonClick(new HomeFragment.OnButtonClick(){
+            @Override
+            public void onClick(View view){
+                transaction1 = getSupportFragmentManager().beginTransaction();
+                //transaction1.replace(R.id.fragment_container,new MoneyFragment());
+                if(!(lastFragment instanceof MoneyFragment)){
+                    transaction1.hide(lastFragment);
+                    buttonMenu_money.onselect();
+                    lastMenu.unselect();
+                    lastMenu = buttonMenu_money;
+                }
 
+                lastFragment = moneyFragment;
+                transaction1.show(moneyFragment);
+                moneyFragment.showLoadDialog();
+                transaction1.commit();
+
+            }
+        });
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -146,6 +169,12 @@ public class MainActivity extends BaseActivity{
 
     @Override
     protected void initEvent(){
+        /*homeFragment.getIds(new HomeFragment.setGoToFargment(){
+            @Override
+            public void setGoToFargment(View view){
+                new MainActivity().choose(view);
+            }
+        });*/
     }
 
     @Override

@@ -11,9 +11,13 @@ import com.alibaba.tangtang.a97shouyou.base.BaseFragment;
 import com.alibaba.tangtang.a97shouyou.base.NetCallback;
 import com.alibaba.tangtang.a97shouyou.common.constant.Constant;
 import com.alibaba.tangtang.a97shouyou.common.net.HttpNet;
+import com.alibaba.tangtang.a97shouyou.common.utils.CountFormation;
+import com.alibaba.tangtang.a97shouyou.common.widget.ButtonMenu;
+import com.alibaba.tangtang.a97shouyou.common.widget.MyTransformation;
 import com.alibaba.tangtang.a97shouyou.module.home.bean.Home_Banner;
 import com.alibaba.tangtang.a97shouyou.module.home.bean.UserInfo;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +38,9 @@ public class HomeFragment extends BaseFragment{
     private TextView home_yuer;
     private TextView home_ub;
 
+    String total = "1200";
+    private TextView home_start_money;
+
     @Override
     protected int setViewId(){
         return R.layout.layout_fragment_home;
@@ -52,11 +59,14 @@ public class HomeFragment extends BaseFragment{
         home_yuer = (TextView) view.findViewById(R.id.home_yuer);
         //合计U币
         home_ub = (TextView) view.findViewById(R.id.home_ub);
+        home_start_money = (TextView) view.findViewById(R.id.home_start_money1);
+        //rippleLayout = (MaterialRippleLayout) view.findViewById(R.id.home_start_money);
     }
 
     @Override
     protected void init(){
         baners = new ArrayList<>();
+        //rippleLayout.setRippleDelayClick(true);
 
     }
 
@@ -68,6 +78,26 @@ public class HomeFragment extends BaseFragment{
                 Toast.makeText(getActivity(), "聚焦测试", Toast.LENGTH_SHORT).show();
             }
         });
+        home_start_money.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                ButtonMenu buttonMenu = (ButtonMenu) getActivity().findViewById(R.id.buttonMenu_money);
+                if(onButtonClick!=null){
+                    onButtonClick.onClick(home_start_money);
+                    // buttonMenu.setClickable(true);
+                }
+            }
+        });
+
+        //给波纹设置监听事件
+
+    }
+    private OnButtonClick onButtonClick;
+    public void setOnButtonClick(OnButtonClick onButtonClick) {
+        this.onButtonClick = onButtonClick;
+    }
+    public interface OnButtonClick{
+        void onClick(View view);
     }
 
     @Override
@@ -81,22 +111,22 @@ public class HomeFragment extends BaseFragment{
     private void LoadUserInfo(){
         Map<String,String> param = new HashMap<>();
         param.put("uid",318529496+"");
-        param.put("token","2082BPL2BwXIH/Ncz2JDg2cG+Ef5MYaJvVlo01P7DNmzYS7Iumwod+7tlpXuxSP8nAd/FamObA");
+        param.put("token","307dPdqRIq4aty44eEYDdxbAIZ777uJdH2oAyp2aadAd4wywvcojvDP9Qs6bMQBTGY+RPn8o0g");
         HttpNet.doHttpRequest("POST", Constant.HOME_USERINFO, param, new NetCallback(){
             @Override
             public void success(String strResult){
                 Log.e("loadData","strResult="+strResult);
-
                 Gson gson = new Gson();
-                UserInfo userInfo = gson.fromJson(strResult, UserInfo.class);
-                UserInfo.InfoBean info = userInfo.getInfo();
+                UserInfo userInfo = gson.fromJson(Constant.USER_INFO, UserInfo.class);
+                UserInfo.InfoBean info =  userInfo.getInfo();
 
-                    /*Picasso.with(getActivity()).load(info.getHpic())
-                            .transform(new MyTransformation())
-                            .into(home_head_image);
-                    home_head_name.setText(info.getNickname());
-                    home_yuer.setText(Double.parseDouble(info.getExpend())/1000+"");
-                    home_ub.setText(info.getExpend());*/
+                Picasso.with(getActivity()).load(info.getHpic())
+                        .transform(new MyTransformation())
+                        .into(home_head_image);
+                home_head_name.setText(info.getNickname());
+
+                home_yuer.setText(CountFormation.getStringFomat1(info.getExpend()));
+                home_ub.setText(info.getExpend());
 
 
             }

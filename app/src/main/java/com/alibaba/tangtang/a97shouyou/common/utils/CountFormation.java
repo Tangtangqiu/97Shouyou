@@ -19,4 +19,17 @@ public class CountFormation{
             return format;
         }
     }
+
+    /**
+     * 传入一个字符串数据类型
+     * 输出一个精度两位的小数
+     * @param count
+     * @return
+     */
+    public static String getStringFomat1(String count){
+        double parseDouble = Double.parseDouble(count)/1000;
+        DecimalFormat format = new DecimalFormat("#.00");
+        String format1 = format.format(parseDouble);
+        return format1;
+    }
 }
