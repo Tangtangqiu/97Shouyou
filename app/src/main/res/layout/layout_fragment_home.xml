@@ -158,7 +158,7 @@
                 android:layout_marginStart="18dp" />
         </RelativeLayout>
 
-    <LinearLayout
+    <com.andexert.library.RippleView
         android:id="@+id/home_start_money"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -177,7 +177,7 @@
             android:text="开始赚钱"
             android:background="@drawable/home_rec_yellow_color"
             />
-    </LinearLayout>
+    </com.andexert.library.RippleView>
 
 
     <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang
@@ -201,7 +201,7 @@
         android:layout_alignStart="@+id/view3"
         android:id="@+id/view4" />
 
-    <LinearLayout
+    <com.andexert.library.RippleView
         android:id="@+id/view2"
         android:layout_width="150dp"
         android:layout_height="80dp"
@@ -217,7 +217,7 @@
             android:layout_width="150dp"
             android:layout_height="80dp"
              />
-    </LinearLayout>
+    </com.andexert.library.RippleView>
 
 
     <com.alibaba.tangtang.a97shouyou.module.home.ui.Home_SiGeKuang

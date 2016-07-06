@@ -16,6 +16,7 @@ import com.alibaba.tangtang.a97shouyou.common.widget.ButtonMenu;
 import com.alibaba.tangtang.a97shouyou.common.widget.MyTransformation;
 import com.alibaba.tangtang.a97shouyou.module.home.bean.Home_Banner;
 import com.alibaba.tangtang.a97shouyou.module.home.bean.UserInfo;
+import com.andexert.library.RippleView;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
@@ -40,6 +41,7 @@ public class HomeFragment extends BaseFragment{
 
     String total = "1200";
     private TextView home_start_money;
+    private RippleView rippleView;
 
     @Override
     protected int setViewId(){
@@ -59,7 +61,10 @@ public class HomeFragment extends BaseFragment{
         home_yuer = (TextView) view.findViewById(R.id.home_yuer);
         //合计U币
         home_ub = (TextView) view.findViewById(R.id.home_ub);
+        //给text设置监听
         home_start_money = (TextView) view.findViewById(R.id.home_start_money1);
+        //给波纹设置监听
+        rippleView = (RippleView) view.findViewById(R.id.home_start_money);
         //rippleLayout = (MaterialRippleLayout) view.findViewById(R.id.home_start_money);
     }
 
@@ -78,9 +83,22 @@ public class HomeFragment extends BaseFragment{
                 Toast.makeText(getActivity(), "聚焦测试", Toast.LENGTH_SHORT).show();
             }
         });
-        home_start_money.setOnClickListener(new View.OnClickListener(){
+        /*home_start_money.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                ButtonMenu buttonMenu = (ButtonMenu) getActivity().findViewById(R.id.buttonMenu_money);
+                if(onButtonClick!=null){
+                    SystemClock.sleep(2000);
+                    onButtonClick.onClick(home_start_money);
+                    // buttonMenu.setClickable(true);
+                }
+            }
+        });*/
+
+        //给波纹设置监听事件
+        rippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener(){
+            @Override
+            public void onComplete(RippleView rippleView){
                 ButtonMenu buttonMenu = (ButtonMenu) getActivity().findViewById(R.id.buttonMenu_money);
                 if(onButtonClick!=null){
                     onButtonClick.onClick(home_start_money);
@@ -89,7 +107,6 @@ public class HomeFragment extends BaseFragment{
             }
         });
 
-        //给波纹设置监听事件
 
     }
     private OnButtonClick onButtonClick;

@@ -28,4 +28,6 @@ dependencies {
     compile files('libs/tools.jar')
     compile project(':library')
     compile 'com.netflix.feign:feign-gson:8.17.0'
+    compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.8'
+    compile project(':ripplelibrary')
 }
