@@ -11,7 +11,7 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+//Add your library folder in your root location of your project and copy all the library files there. For ex YourProject/library then sync it and rest things seems OK to me.
 allprojects {
     repositories {
         jcenter()

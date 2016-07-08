@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.alibaba.tangtang.a97shouyou"
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -30,4 +30,5 @@ dependencies {
     compile 'com.netflix.feign:feign-gson:8.17.0'
     compile 'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.8'
     compile project(':ripplelibrary')
+    compile 'com.jiechic.library:xUtils:2.6.14'
 }

@@ -10,8 +10,9 @@ import com.alibaba.tangtang.a97shouyou.base.BaseFragment;
 import com.alibaba.tangtang.a97shouyou.base.ListViewCallback;
 import com.alibaba.tangtang.a97shouyou.common.adapter.CommonAdapter;
 import com.alibaba.tangtang.a97shouyou.common.adapter.ViewHolder;
+import com.alibaba.tangtang.a97shouyou.common.net.HttpNet;
 import com.alibaba.tangtang.a97shouyou.common.utils.CountFormation;
-import com.alibaba.tangtang.a97shouyou.module.money.bean.Search_Game;
+import com.alibaba.tangtang.a97shouyou.module.money.bean.InfoBean;
 import com.alibaba.tangtang.a97shouyou.module.money.dao.SearchGameDao;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -26,10 +27,10 @@ public class TryGameFragment extends BaseFragment{
 
     private PullToRefreshListView search_tryGame_listView;
     private TextView search_try_circle;
-    CommonAdapter<Search_Game.InfoBean> adapter;
-    private List<Search_Game.InfoBean> dataLists;
+    CommonAdapter<InfoBean> adapter;
+    private List<InfoBean> dataLists;
 
-    private int page = 0;
+    private int page = 1;
     @Override
     protected int setViewId(){
         return R.layout.search_trygame;
@@ -47,11 +48,11 @@ public class TryGameFragment extends BaseFragment{
         search_tryGame_listView.setMode(PullToRefreshBase.Mode.BOTH);
 
         dataLists = new ArrayList<>();
-        adapter = new CommonAdapter<Search_Game.InfoBean>(getActivity(),
+        adapter = new CommonAdapter<InfoBean>(getActivity(),
                 dataLists,
                 R.layout.search_item){
             @Override
-            public void convert(ViewHolder helper, int position, Search_Game.InfoBean item){
+            public void convert(ViewHolder helper, int position, InfoBean item){
                 helper.setText(R.id.search_item_title,item.getName());
                 helper.setText(R.id.search_downCount,item.getDl_num()+"人下载");
                 helper.setText(R.id.search_size,item.getSize());
@@ -89,18 +90,28 @@ public class TryGameFragment extends BaseFragment{
 
     @Override
     protected void loadData(){
-        SearchGameDao.getAllGameInfo(page, new ListViewCallback(){
-            @Override
-            public void updataListview(Object object){
-                List<Search_Game.InfoBean> dataList = (List<Search_Game.InfoBean>) object;
-                Log.e("TryGameFragment", "dataList.size():" + dataList.size());
+        //加载数据之前先进行判断，如果有网怎么从网上下载最新数据，否则就从数据库中加载上一次保存额数据
+        if(HttpNet.checkNetworkAvailable(getActivity())){//如果网络可用
+            SearchGameDao.getAllGameInfo(page, new ListViewCallback(){
+                @Override
+                public void updataListview(Object object){
+                    List<InfoBean> dataList = (List<InfoBean>) object;
+                    Log.e("TryGameFragment", "dataList.size():" + dataList.size());
 
-                dataLists.addAll(dataList);
-                adapter.notifyDataSetChanged();
-                search_tryGame_listView.onRefreshComplete();
-                search_try_circle.setText(dataLists.size()+"");
+                    dataLists.addAll(dataList);
+                    adapter.notifyDataSetChanged();
+                    search_tryGame_listView.onRefreshComplete();
+                    search_try_circle.setText(dataLists.size()+"");
 
-            }
-        });
+                    //存储数据
+
+
+
+                }
+            });
+        }else {//网络不可用，就从上一次存储的数据库中加载数据
+
+        }
+
     }
 }

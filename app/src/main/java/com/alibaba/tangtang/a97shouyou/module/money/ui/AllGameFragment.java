@@ -4,18 +4,14 @@ import android.view.View;
 
 import com.alibaba.tangtang.a97shouyou.R;
 import com.alibaba.tangtang.a97shouyou.base.BaseFragment;
-import com.alibaba.tangtang.a97shouyou.base.NetCallback;
+import com.alibaba.tangtang.a97shouyou.base.ListViewCallback;
 import com.alibaba.tangtang.a97shouyou.common.adapter.MyRecycleViewAdapter;
-import com.alibaba.tangtang.a97shouyou.common.constant.Constant;
-import com.alibaba.tangtang.a97shouyou.common.net.HttpNet;
-import com.alibaba.tangtang.a97shouyou.module.money.bean.Search_Game;
-import com.google.gson.Gson;
+import com.alibaba.tangtang.a97shouyou.module.money.bean.InfoBean;
+import com.alibaba.tangtang.a97shouyou.module.money.dao.SearchGameDao;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by zhaoaiqiu on 2016/6/29.
@@ -26,7 +22,7 @@ public class AllGameFragment extends BaseFragment{
     private PullLoadMoreRecyclerView search_allGame_listView;
 
     //CommonAdapter<Search_Game.InfoBean> adapter;
-    private List<Search_Game.InfoBean> dataLists  = new ArrayList<>();
+    private List<InfoBean> dataLists  = new ArrayList<>();
 
     private int page = 1;
     private MyRecycleViewAdapter adapter;
@@ -118,8 +114,22 @@ public class AllGameFragment extends BaseFragment{
     @Override
     protected void loadData(){
         //HttpNet.doHttpRequest();
+        SearchGameDao.getAllGameInfo(page, new ListViewCallback(){
+            @Override
+            public void updataListview(Object object){
+                //List<Search_Game.InfoBean> infoBean = (List<Search_Game.InfoBean>) object;
+                List<InfoBean> infoBean = (List<InfoBean>) object;
+                dataLists.addAll(infoBean);
 
-        Map<String,String> param = new HashMap<>();
+                adapter.notifyDataSetChanged();
+
+                search_allGame_listView.setPullLoadMoreCompleted();
+            }
+        });
+
+
+
+        /*Map<String,String> param = new HashMap<>();
         param.put("platform","2");//平台参数类型，1位IOS，2位Android
         param.put("page",page+"");
         HttpNet.doHttpRequest("POST", Constant.MONEY_URL, param, new NetCallback(){
@@ -138,7 +148,7 @@ public class AllGameFragment extends BaseFragment{
             @Override
             public void fail(String strResult){
             }
-        });
+        });*/
         /*SearchGameDao.getAllGameInfo(page, new ListViewCallback(){
             @Override
             public void updataListview(Object object){

@@ -16,4 +16,14 @@ public class MoneyDao{
         //把json数据解析成一个bean对象之后，通过回调，传给listview来更新条目
         listviewCallBack.updataListview(taskGameInfo.getInfo());
     }
+
+    public static void getAllGameInfo(int iPage,ListViewCallback listviewCallBack){
+
+
+        Gson gson = new Gson();
+        TaskGameInfo taskGameInfo = gson.fromJson(Constant.GAME_TASK_LIST_JSON, TaskGameInfo.class);
+        //把json数据解析成一个bean对象之后，通过回调，传给listview来更新条目
+        listviewCallBack.updataListview(taskGameInfo.getInfo());
+    }
+
 }
